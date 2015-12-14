@@ -1,5 +1,5 @@
 "use strict";
-var pattern = /^(\d+)(?:;(?:\s*url\s*=\s*)?(.+)?)?$/i;
+var pattern = /^\s*(\d+)(?:\s*;(?:\s*url\s*=\s*)?(.+)?)?$/i;
 
 
 
