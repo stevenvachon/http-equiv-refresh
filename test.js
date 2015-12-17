@@ -49,5 +49,6 @@ it("should work", function()
 	
 	expect( parseMetaRefresh("5; url=http://domain.com/;")   ).to.deep.equal(timeoutAndUrl3);
 	expect( parseMetaRefresh("5; url=http://domain.com/; ")  ).to.deep.equal(timeoutAndUrl3);
+	expect( parseMetaRefresh("5;URL='http://domain.com/'")  ).to.deep.equal(timeoutAndUrl3);	// as see on Google Alerts
 	expect( parseMetaRefresh("5; url=http://domain.com/ ; ") ).to.deep.equal({ timeout:5, url:"http://domain.com/ ;" });
 });
