@@ -1,7 +1,7 @@
 {
   "name": "http-equiv-refresh",
   "description": "Parse an HTML meta refresh value.",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "license": "MIT",
   "homepage": "https://github.com/stevenvachon/http-equiv-refresh",
   "author": {
@@ -17,8 +17,8 @@
     "url": "https://github.com/stevenvachon/http-equiv-refresh/issues"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "mocha": "^2.3.4"
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
   },
   "engines": {
     "node": ">= 0.10"
