@@ -1,34 +1,22 @@
 {
   "name": "http-equiv-refresh",
   "description": "Parse an HTML meta refresh value.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "license": "MIT",
-  "homepage": "https://github.com/stevenvachon/http-equiv-refresh",
-  "author": {
-    "name": "Steven Vachon",
-    "email": "contact@svachon.com",
-    "url": "http://www.svachon.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/stevenvachon/http-equiv-refresh.git"
-  },
-  "bugs": {
-    "url": "https://github.com/stevenvachon/http-equiv-refresh/issues"
-  },
+  "author": "Steven Vachon <contact@svachon.com> (https://www.svachon.com/)",
+  "repository": "stevenvachon/http-equiv-refresh",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
   },
   "engines": {
-    "node": ">= 0.10"
+    "node": ">= 6"
   },
   "scripts": {
-    "test": "mocha test.js --reporter spec --check-leaks --bail"
+    "test": "mocha test.js --reporter=spec --check-leaks --bail"
   },
   "files": [
-    "index.js",
-    "license"
+    "index.js"
   ],
   "keywords": [
     "html",

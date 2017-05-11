@@ -1,28 +1,27 @@
 "use strict";
-var pattern = /^\s*(\d+)(?:\s*;(?:\s*url\s*=)?\s*(.+)?)?$/i;
+const pattern = /^\s*(\d+)(?:\s*;(?:\s*url\s*=)?\s*(.+)?)?$/i;
 
 
 
-function parseMetaRefresh(content)
+const parseMetaRefresh = content =>
 {
-	var firstChar,lastChar,url;
-	var result = { timeout:null, url:null };
+	const result = { timeout:null, url:null };
 	content = pattern.exec(content);
-	
+
 	if (content !== null)
 	{
 		if (content[1] !== undefined)
 		{
-			result.timeout = ~~content[1];  // faster than `parseInt()`
+			result.timeout = parseInt( content[1] );
 		}
-		
+
 		if (content[2] !== undefined)
 		{
-			url = content[2].trim();
-			
-			firstChar = url[0];
-			lastChar  = url[ url.length-1 ];
-			
+			let url = content[2].trim();
+
+			const firstChar = url[0];
+			const lastChar  = url[ url.length-1 ];
+
 			// Remove a single level of encapsulating quotes
 			if (firstChar==="'" && lastChar==="'" || firstChar==='"' && lastChar==='"')
 			{
@@ -34,16 +33,16 @@ function parseMetaRefresh(content)
 				{
 					url = "";
 				}
-				
+
 				if (url === "") url = null;
 			}
-			
+
 			result.url = url;
 		}
 	}
-	
+
 	return result;
-}
+};
 
 
 

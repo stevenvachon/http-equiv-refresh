@@ -1,11 +1,11 @@
 # http-equiv-refresh [![NPM Version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
-> Parse an HTML meta refresh value.
+> Parse an HTML [meta refresh value](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-http-equiv).
 
 
 ## Installation
 
-[Node.js](http://nodejs.org/) `>= 0.10` is required. To install, type this at the command line:
+[Node.js](http://nodejs.org/) `>= 6` is required. To install, type this at the command line:
 ```shell
 npm install http-equiv-refresh
 ```
@@ -13,13 +13,13 @@ npm install http-equiv-refresh
 
 ## Usage
 ```js
-var parseMetaRefresh = require("http-equiv-refresh");
+const parseMetaRefresh = require('http-equiv-refresh');
  
-parseMetaRefresh("5; url=http://domain.com/");
-//=> { timeout:5, url:"http://domain.com/" }
+parseMetaRefresh('5; url=http://domain.com/');
+//-> { timeout:5, url:'http://domain.com/' }
 
-parseMetaRefresh("5");
-//=> { timeout:5, url:null }
+parseMetaRefresh('5');
+//-> { timeout:5, url:null }
 ```
 
 
