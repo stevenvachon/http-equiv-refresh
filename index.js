@@ -1,5 +1,5 @@
 "use strict";
-const pattern = /^\s*(\d+)(?:\s*;(?:\s*url\s*=)?\s*(.+)?)?$/i;
+const pattern = /^\s*(\d+)(?:\s*;(?:\s*url\s*=)?\s*(?:("|')\s*(.+?)?\s*\2|(.+?))?)?\s*$/i;
 
 
 
@@ -10,38 +10,10 @@ const parseMetaRefresh = content =>
 
 	if (content !== null)
 	{
-		if (content[1] !== undefined)
-		{
-			result.timeout = parseInt(content[1], 10);
-		}
+		// pattern gaurantees first matching group
+		result.timeout = parseInt( content[1] );
 
-		if (content[2] !== undefined)
-		{
-			let url = content[2].trim();
-
-			const firstChar = url[0];
-			const lastChar  = url[ url.length-1 ];
-
-			// Remove a single level of encapsulating quotes
-			if (firstChar==="'" && lastChar==="'" || firstChar==='"' && lastChar==='"')
-			{
-				if (url.length > 2)
-				{
-					url = url.substr(1, url.length-2).trim();
-				}
-				else
-				{
-					url = "";
-				}
-
-				if (url === "")
-				{
-					url = null;
-				}
-			}
-
-			result.url = url;
-		}
+		result.url = content[3] || content[4] || null;
 	}
 
 	return result;
