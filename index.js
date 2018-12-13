@@ -1,5 +1,5 @@
 "use strict";
-const pattern = /^\s*(\d+)(?:\s*;(?:\s*url\s*=)?\s*(?:("|')\s*(.*?)\s*\2|(.*?)))?\s*$/i;
+const pattern = /^\s*(\d+)(?:\s*;(?:\s*url\s*=)?\s*(?:["']\s*(.*?)\s*['"]|(.*?)))?\s*$/i;
 
 
 
@@ -13,7 +13,7 @@ const parseMetaRefresh = content =>
 		// pattern gaurantees first matching group
 		result.timeout = parseInt( content[1] );
 
-		result.url = content[3] || content[4] || null;
+		result.url = content[2] || content[3] || null;
 	}
 
 	return result;
