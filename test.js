@@ -22,7 +22,7 @@ it("works", () =>
 
 	expect( parseMetaRefresh(" 5")                         ).to.deep.equal(timeoutOnly);
 	expect( parseMetaRefresh("5 ")                         ).to.deep.equal(timeoutOnly);
-	expect( parseMetaRefresh(" 5 ")                         ).to.deep.equal(timeoutOnly);
+	expect( parseMetaRefresh(" 5 ")                        ).to.deep.equal(timeoutOnly);
 
 	expect( parseMetaRefresh("5;")                        ).to.deep.equal(timeoutOnly);
 	expect( parseMetaRefresh("5;url")                     ).to.deep.equal(timeoutAndUrl2);
