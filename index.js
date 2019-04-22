@@ -12,7 +12,7 @@ const parseMetaRefresh = content =>
 	{
 		if (content[1] !== undefined)
 		{
-			result.timeout = parseInt( content[1] );
+			result.timeout = parseInt(content[1], 10);
 		}
 
 		if (content[2] !== undefined)
@@ -34,7 +34,10 @@ const parseMetaRefresh = content =>
 					url = "";
 				}
 
-				if (url === "") url = null;
+				if (url === "")
+				{
+					url = null;
+				}
 			}
 
 			result.url = url;
