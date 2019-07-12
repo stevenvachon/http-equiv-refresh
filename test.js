@@ -1,7 +1,7 @@
 "use strict";
 const {expect} = require("chai");
 const {it} = require("mocha");
-const parseMetaRefresh = require("./");
+const parseMetaRefresh = require("./index-es5");
 
 
 
