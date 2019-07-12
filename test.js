@@ -19,6 +19,11 @@ it("works", () =>
 	expect( parseMetaRefresh("")                          ).to.deep.equal(nothing);
 	expect( parseMetaRefresh(" ")                         ).to.deep.equal(nothing);
 	expect( parseMetaRefresh("5")                         ).to.deep.equal(timeoutOnly);
+
+	expect( parseMetaRefresh(" 5")                         ).to.deep.equal(timeoutOnly);
+	expect( parseMetaRefresh("5 ")                         ).to.deep.equal(timeoutOnly);
+	expect( parseMetaRefresh(" 5 ")                        ).to.deep.equal(timeoutOnly);
+
 	expect( parseMetaRefresh("5;")                        ).to.deep.equal(timeoutOnly);
 	expect( parseMetaRefresh("5;url")                     ).to.deep.equal(timeoutAndUrl2);
 	expect( parseMetaRefresh("5;url=http://domain.com/")  ).to.deep.equal(timeoutAndUrl1);
@@ -71,4 +76,8 @@ it("works", () =>
 	expect( parseMetaRefresh("5; url=http://domain.com/;")   ).to.deep.equal(timeoutAndUrl5);
 	expect( parseMetaRefresh("5; url=http://domain.com/; ")  ).to.deep.equal(timeoutAndUrl5);
 	expect( parseMetaRefresh("5; url=http://domain.com/ ; ") ).to.deep.equal({ timeout:5, url:"http://domain.com/ ;" });
+
+	expect( parseMetaRefresh(`5; 'http://domain.com/"`) ).to.deep.equal(timeoutAndUrl1);
+	expect( parseMetaRefresh(`5; 'http://domai'n.com/"`) ).to.deep.equal({ timeout:5, url:`http://domai'n.com/` });
+	expect( parseMetaRefresh(`5; 'http://domai"n.com/"`) ).to.deep.equal({ timeout:5, url:`http://domai"n.com/` });
 });
