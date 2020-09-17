@@ -29,7 +29,8 @@
   "files": [
     "index.js",
     "index-es5.js",
-    "index-es5.js.map"
+    "index-es5.js.map",
+    "index-es5.d.ts"
   ],
   "keywords": [
     "html",
